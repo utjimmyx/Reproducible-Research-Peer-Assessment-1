@@ -12,9 +12,9 @@ if(!file.exists("getdata-projectfiles-UCI HAR Dataset.zip")) {
 activity <- read.csv("activity.csv")
 
 TotalbyDay<- aggregate(steps ~ date, activity, sum)
-hist(steps_by_day$steps, main = paste("Total Steps"), col="blue", xlab="Number of Steps")
-rmean <- mean(steps_by_day$steps)
-rmedian <- median(steps_by_day$steps)
+hist(TotalbyDay$steps, main = paste("Total Steps"), col="blue", xlab="Number of Steps")
+rmean <- mean(TotalbyDay$steps)
+rmedian <- median(TotalbyDay$steps)
 
 #3) Calculate and report the mean and median of the total number of steps taken per day
 TotalbyDay<-aggregate(activity$steps, list(Day=activity$date), FUN = sum, na.rm=TRUE)
